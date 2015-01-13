@@ -1,0 +1,181 @@
+<div class="modal-header" >
+	<h3>Hilfe</h3>
+</div>
+<div class="modal-body"   >
+	
+		
+	<div style="height:280px">
+		
+		<h4>Inhalt</h4>
+
+		<ul>
+			<li><a href="#" ng-click="gotoTag('toolbarHelp')">Toolbar</a></li>
+			<li><a href="#" ng-click="gotoTag('attrDesc')">Beschreibung der Attribute</a></li>
+		</ul>
+		
+		<h4 id="toolbarHelp">Toolbar</h4>
+
+		<button class="btn"  > 
+            <i class="fa fa-folder-open-o fa-fw"></i>
+            <span class="shrink">Öffnen</span>
+        </button>
+        <p class="help">        
+        Öffnen eines vorhandenen Umschichtungsvorhabens.
+    	</p>
+
+        <button class="btn btn-success" >
+            <i class="fa fa-file-text-o fa-fw"></i>
+            <span >Neu</span>
+        </button>
+        <p class="help">
+        Erstellen eines neuen Umschichtungsvorhabens.<br/>
+        <div class="alert">
+		  <button type="button" class="close" >&times;</button>
+		  <strong>Achtung!</strong> Vor dem Erstellen einer Umschichtung sollten immer die Basisdaten auf den
+		  aktuellen Stand gebracht werden.
+		</div>
+        </p>
+
+        <button class="btn btn-primary" >
+            <i class="fa fa-floppy-o fa-fw"></i>
+            <span >Speichern</span>
+        </button>
+        <p class="help">
+        Speichern des aktuell ausgewählten Umschichtungsvorhabens.
+        </p>
+
+        <button class="btn  btn-primary " >
+        	<i class="fa fa-floppy-o fa-fw"></i>
+            <span>Speichern unter</span>
+        </button>
+        <p class="help">
+        	Speichern des aktuell ausgewählten Umschichtungsvorhabens unter einer neuen Iteration.
+        </p>
+
+        <button  class="btn btn-danger "  >
+            <i class="fa fa-trash-o fa-fw"></i>
+            <span class="shrink">Löschen</span>
+        </button>
+        <p class="help">
+        	Löschen des aktuell ausgewählten Umschichtungsvorhabens.
+        </p>
+
+        <button  class="btn " >
+            <i class="fa fa-sign-in fa-fw"></i>
+            <span class="shrink">BD</span>
+        </button>
+         <p class="help">
+         Basisdaten importieren. Das XML-File mit den Basisdaten ist auf der Webseite der <a href="https://www.aq.ac.at/bis/login/login.aspx" target="_blank">AQ Austria</a> zu finden und sollte vor der Erstellung eines neuen Umschichtungsvorhabens importiert werden. 
+    	</p>
+
+    	<button class="btn " tooltip-append-to-body="30"  >
+            <i class="fa fa-sign-in fa-fw"></i>
+            <span class="shrink">FÖBis</span>
+        </button>
+        <p class="help">
+        Importieren der Liste der geförderten Studenten lt. BIS-Meldung. Diese Daten werden bei Bedarf über
+        ein Webservice der AQ Austria geladen und dienen als Zusatzinformation. Sie sind 
+        für die Erstellung der Umschichtungen nicht obligatorisch. Da die Datenmenge sehr groß ist, dauert der Import etwas.<br/>
+        FÖBis = Förderberechnungsinformationssystem<br/>
+        </p>
+
+        <button class="btn " >
+            <i class="fa fa-sign-out fa-fw"></i>
+            <span >UV</span>
+        </button>
+         <p class="help">
+         Download des XML-Files mit dem Umschichtungsvorhaben. Diese Datei kann in der Webapplikation der AQ Austria
+         hochgeladen werden.
+         </p>
+
+        <button class="btn " >
+            <i class="fa fa-sign-out fa-fw"></i>
+            <span >Export CSV</span>
+        </button>
+         <p class="help">
+         	Download des aktuellen Umschichtungsvorhabens als CSV-File. Dabei sind auch alle Zusatzinformationen enthalten.
+         </p>
+
+         <h4 id="attrDesc">Beschreibung der Attribute</h4>
+
+         <table class="table">
+         	<tr>
+         		<th>StgKz</th><td>Studiengangskennzahl</td>
+         	</tr>
+         	<tr>
+         		<th>Stg</th><td>Studiengangskurzbezeichnung</td>
+         	</tr>
+         	<tr>
+         		<th>Art</th><td>b=Bachelor, m=Master</td>
+         	</tr>
+         	<tr>
+         		<th>OrgForm</th><td>Organisationsform lt. BIS</td>
+         	</tr>
+         	<tr>
+         		<th>SJahr</th><td>Studienjahr</td>
+         	</tr>
+         	<tr>
+         		<th>Semester</th><td>Studiensemester</td>
+         	</tr>
+         	<tr>
+         		<th>GPZ-BZ</th><td>Gesamtplatzzahl-Basisdaten</td>
+         	</tr>
+         	<tr>
+         		<th>GPZ-UV</th><td>Gesamtplatzzahl-Umschichtungsvorhaben</td>
+         	</tr>
+         	<tr>
+         		<th>GPZ-Diff</th><td>Differenz GPZ-BD - GPZ-UV</td>
+         	</tr>
+         	<tr>
+         		<th>NPZ-BD</th><td>Normplatzzahl-Basisdaten</td>
+         	</tr>
+         	<tr>
+         		<th>NPZ-UV</th><td>Normplatzzahl-Umschichtungsvorhaben</td>
+         	</tr>
+         	<tr>
+         		<th>NPZ-Diff</th><td>NPZ-BD - NPZ-UV</td>
+         	</tr>
+         	<tr>
+         		<th>TFP-BD</th><td>Toleranzförderplätze basierend auf den Basisdaten, berechnet nach dem vorgegebenen Algorithmus der AQ Austria</td>
+         	</tr>
+         	<tr>
+         		<th>Tol unten BD</th><td>Untere Toleranzgrenze. Ist die Anzahl der geförderten Studenten ('FÖBisAktive') geringer als diese Grenze, dann kommt es zu einer Reduzierung der Förderung.</td>
+         	</tr>
+         	<tr>
+         		<th>Beginn</th><td>Semester mit dem dieser Studiengang offiziell beginnt</td>
+         	</tr>
+         	<tr>
+         		<th>Ende</th><td>Semester mit dem dieser Studiengang offiziell ausläuft</td>
+         	</tr>
+         	<tr>
+         		<th>RStd</th><td>Regelstudiendauer in Semester</td>
+         	</tr>
+         	<tr>
+         		<th>FÖBisA</th><td>Anzahl der geförderten aktiven Studenten<br/>FÖBis=Förderberechnungsinformationssystem, A=Aktive</td>
+         	</tr>
+         	<tr>
+         		<th>Aufnahme</th><td>Gibt an, ob Studiengang zusätzliche Studenten aufnimmt. Das ist bei Studiengängen der Fall, die sich im Aufbau befinden. Derzeit wird dieses Flag noch nicht von FHComplete unterstützt und muss daher aus den Basisdaten der AQ Austria übernommen werden.</td>
+         	</tr>
+         	<tr>
+         		<th>Bewerber</th><td>Anzahl der Personen die als Bewerber für einen Studiengang eingestuft sind.</td>
+         	</tr>
+         	<tr>
+         		<th>Interessenten</th><td>Anzahl der Personen die lt. FAS als Interessent für einen Studiengang eingestuft sind.</td>
+         	</tr>
+         	<tr>
+         		<th>Drop-Out</th><td>Anzahl der Abbrecher</td>
+         	</tr>
+         	<tr>
+         		<th>Studierende</th><td>Anzahl der Personen die im FAS als aktiver Student gekennzeichnet sind.</td>
+         	</tr>
+
+         </table>
+
+	</div>
+
+</div>
+<div class="modal-footer" ng-class="{wait:busy}">
+	<button class="btn btn-primary" ng-class="{disabled:busy}" ng-click="ok()">OK</button>
+	
+</div>
+

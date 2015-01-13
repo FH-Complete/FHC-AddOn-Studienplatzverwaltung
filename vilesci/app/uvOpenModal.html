@@ -1,0 +1,42 @@
+<div class="modal-header">
+	<h3>Umschichtungsvorhaben öffnen</h3>
+	
+	
+	
+	
+</div>
+<div class="modal-body">
+	
+	<div class="control-group">
+		<label class="control-label" for="studienjahr">Studienjahr</label>
+		<div class="controls">
+			<select ng-model="form.studienjahr" 
+					ng-options="value for value in studienjahr" id="studienjahr"></select>
+		</div>
+		
+	</div>
+	
+	
+	<div style="height:180px;overflow-y: scroll;"> 
+	<table class="table  table-hover" >
+		<thead>
+                    <tr><th>Iteration</th><th>Datum</th><th>Eingereicht</th></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in items" ng-click="updateAuswahl(item)">
+				<td>{{ item.nr }}</td>
+				<td>{{ item.lastupdate | date:'dd.MM.yyyy HH:mm:ss' }}</td>
+                <td> {{ item.status==='eingereicht' | checkmark }}</td>
+			</tr>
+		</tbody>			
+	</table>
+	</div>
+		
+
+	Auswahl: <b ng-show="selectedItem.nr">{{ form.studienjahr }} - {{ selectedItem.nr }}</b>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="ok()">OK</button>
+	<button class="btn btn-warning" ng-click="cancel()">Abbrechen</button>
+</div>
+

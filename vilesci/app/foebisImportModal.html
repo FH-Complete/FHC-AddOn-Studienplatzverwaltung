@@ -1,0 +1,37 @@
+<div class="modal-header" ng-class="{wait:busy}">
+	<h3>FÖBisAktive importieren</h3>
+</div>
+<div class="modal-body" ng-class="{wait:busy}"  >
+	
+	
+	<div style="height:100px">
+		<b>Achtung!</b> Dieser Vorgang kann ein bis zwei Minuten dauern. Die FÖBIS-Daten werden vom Webservice der <a href="https://www.aq.ac.at/bis/login/login.aspx" target="_blank">AQ Austria</a> geholt.<br/>
+		Sollte es zu Problemen kommen, überprüfen Sie bitte, ob der Link zum Webservice sowie der User korrekt konfiguriert sind. Klicken Sie nun
+		auf OK um die Synchronisation zu starten.
+
+	</div>
+		
+	
+	<!--
+	<form>
+	<div class="control-group">
+		<label class="control-label" for="studienjahr">Studienjahr</label>
+		<div class="controls">
+			<select ng-model="foebis.studienjahr" 
+					ng-options="value for value in studienjahr" id="studienjahr"></select>
+		</div>
+		
+	</div>
+	
+	
+    </form>
+	-->
+		
+	
+	
+</div>
+<div class="modal-footer" ng-class="{wait:busy}">
+	<button class="btn btn-primary" ng-class="{disabled:busy}" ng-click="ok()">OK</button>
+	<button class="btn btn-warning" ng-click="cancel()">Abbrechen</button>
+</div>
+

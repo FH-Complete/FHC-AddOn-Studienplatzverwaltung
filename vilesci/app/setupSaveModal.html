@@ -1,0 +1,18 @@
+<div class="modal-header" ng-class="{wait:busy}">
+	<h3>Einstellungen speichern</h3>
+</div>
+<div class="modal-body" ng-class="{wait:busy}"  >
+	
+		
+	<div style="height:100px">
+		Einstellungen speichern unter der Bezeichnung:<br/>		
+			<input type="text" ng-model="bezeichnungDTO.bezeichnung" class="input-xlarge"/> 			
+
+	</div>
+
+</div>
+<div class="modal-footer" ng-class="{wait:busy}">
+	<button class="btn btn-primary" ng-class="{disabled:busy}" ng-click="ok()">OK</button>
+	<button class="btn btn-warning" ng-click="cancel()">Abbrechen</button>
+</div>
+

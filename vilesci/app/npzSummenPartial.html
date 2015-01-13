@@ -1,0 +1,54 @@
+<div ng-app ng-controller="SummaryCtrl" style="width:99%">
+	<table class="watch table table-condensed table-bordered table-striped">
+
+		<tr class="watch column-label">
+			<th rowspan="2"></th>
+			<th ng-repeat="sj in tab.studienjahre" colspan="2">{{sj}}</th>
+		</tr>
+		<tr class="watch column-label">
+			<th ng-repeat-start="sj in tab.studienjahre" >WS{{sj.substr(0,4)}}</th><th ng-repeat-end >SS{{1+parseInt(sj.substr(0,4))}}</th>
+		</tr>
+
+		<tr ng-repeat-start="row in rows" >
+			<th class="row-label" rowspan="2">{{row}}</th>
+			<td ng-repeat-start="sj in tab.studienjahre">
+				<div>
+					{{tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):row:'npzUv' | number:1}}	
+
+					<small>({{tab.uvListe | diffBySemesterAndOrgForm:('WS'+sj.substr(0,4)):row:'npzUv':'npzBd' | number:1}})</small>
+				</div>
+			</td>
+			<td ng-repeat-end >
+				<div>
+					{{tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):row:'npzUv' | number:1}}
+					<small>({{tab.uvListe | diffBySemesterAndOrgForm:('SS'+sj.substr(0,4)):row:'npzUv':'npzBd' | number:1}})</small>
+				</div>
+			</td>
+		</tr>
+		<tr ng-repeat-end >
+			<td ng-repeat="sj in tab.studienjahre" colspan="2">
+				<div>												 
+					{{  ((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):row:'npzUv')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):row:'npzUv'))/2 | number:1 }}
+					<small>({{  ((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):row:'npzUv')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):row:'npzUv'))/2 -
+							((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):row:'npzBd')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):row:'npzBd'))/2 | number:1 }})</small>
+				</div>
+			</td>
+
+		</tr>
+		<tr class=" watch column-label">
+			<th></th>
+			<th ng-repeat="sj in tab.studienjahre" colspan="2">
+				{{ ((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):'BB':'npzUv')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):'BB':'npzUv'))/2 + ((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):'VZ':'npzUv')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):'VZ':'npzUv'))/2  | number:1}}
+
+				<small>
+				({{ (((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):'BB':'npzUv')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):'BB':'npzUv'))/2 + ((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):'VZ':'npzUv')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):'VZ':'npzUv'))/2)
+				 -
+					(((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):'BB':'npzBd')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):'BB':'npzBd'))/2 + ((tab.uvListe | sumBySemesterAndOrgForm:('WS'+sj.substr(0,4)):'VZ':'npzBd')  + (tab.uvListe | sumBySemesterAndOrgForm:('SS'+(1+parseInt(sj.substr(0,4)))):'VZ':'npzBd'))/2)
+
+
+				 | number:1}})</small>
+			</th>
+		</tr>
+
+	</table>
+</div>
