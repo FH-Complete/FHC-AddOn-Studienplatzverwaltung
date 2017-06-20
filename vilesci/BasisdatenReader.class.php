@@ -42,23 +42,6 @@ require_once(__DIR__ .'/../../../include/studienplatz.class.php');
  *		</Studiengang>
  *   usw.
  * </code>
- * 
- *  =========================
- *  NEUE VARIANTE ab 2017
- *  =========================
- *  
- *  <code>
- * <Erhalter ErhKz="005">
- *		<Studiengang UVArt="STG" StgKz="0227" StudiengangBezeichnung="Biomedizinisches Ingenieurwesen/Biomedical Engineering" StudiengangsArt="Ba" Beginn="2003/04" Ende="">
-			<Studienjahr Studienjahr="2016/17" Standort="Wien" Foerdergruppe="technisch" VZGPZWS="216" VZGPZSS="216" VZAufnahmeWS="1" VZAPZWS="68" VZAufnahmeSS="" VZAPZSS="" VZNPZWS="216" VZNPZSS="216" VZRegelstudiendauer="6" BBGPZWS="" BBGPZSS="" BBAufnahmeWS="" BBAPZWS="" BBAufnahmeSS="" BBAPZSS="" BBNPZWS="" BBNPZSS="" BBRegelstudiendauer="" VBBGPZWS="" VBBGPZSS="" VBBAufnahmeWS="" VBBAPZWS="" VBBAufnahmeSS="" VBBAPZSS="" VBBNPZWS="" VBBNPZSS="" VBBRegelstudiendauer="" Umschichtbar="1" />
-			<Studienjahr Studienjahr="2017/18" Standort="Wien" Foerdergruppe="technisch" VZGPZWS="224" VZGPZSS="224" VZAufnahmeWS="1" VZAPZWS="65" VZAufnahmeSS="" VZAPZSS="" VZNPZWS="224" VZNPZSS="224" VZRegelstudiendauer="6" BBGPZWS="" BBGPZSS="" BBAufnahmeWS="" BBAPZWS="" BBAufnahmeSS="" BBAPZSS="" BBNPZWS="" BBNPZSS="" BBRegelstudiendauer="" VBBGPZWS="" VBBGPZSS="" VBBAufnahmeWS="" VBBAPZWS="" VBBAufnahmeSS="" VBBAPZSS="" VBBNPZWS="" VBBNPZSS="" VBBRegelstudiendauer="" Umschichtbar="1" />
-			<Studienjahr Studienjahr="2018/19" Standort="Wien" Foerdergruppe="technisch" VZGPZWS="224" VZGPZSS="224" VZAufnahmeWS="1" VZAPZWS="67" VZAufnahmeSS="" VZAPZSS="" VZNPZWS="224" VZNPZSS="224" VZRegelstudiendauer="6" BBGPZWS="" BBGPZSS="" BBAufnahmeWS="" BBAPZWS="" BBAufnahmeSS="" BBAPZSS="" BBNPZWS="" BBNPZSS="" BBRegelstudiendauer="" VBBGPZWS="" VBBGPZSS="" VBBAufnahmeWS="" VBBAPZWS="" VBBAufnahmeSS="" VBBAPZSS="" VBBNPZWS="" VBBNPZSS="" VBBRegelstudiendauer="" Umschichtbar="1" />
-			<Studienjahr Studienjahr="2019/20" Standort="Wien" Foerdergruppe="technisch" VZGPZWS="224" VZGPZSS="224" VZAufnahmeWS="1" VZAPZWS="67" VZAufnahmeSS="" VZAPZSS="" VZNPZWS="224" VZNPZSS="224" VZRegelstudiendauer="6" BBGPZWS="" BBGPZSS="" BBAufnahmeWS="" BBAPZWS="" BBAufnahmeSS="" BBAPZSS="" BBNPZWS="" BBNPZSS="" BBRegelstudiendauer="" VBBGPZWS="" VBBGPZSS="" VBBAufnahmeWS="" VBBAPZWS="" VBBAufnahmeSS="" VBBAPZSS="" VBBNPZWS="" VBBNPZSS="" VBBRegelstudiendauer="" Umschichtbar="1" />
-			<Studienjahr Studienjahr="2020/21" Standort="Wien" Foerdergruppe="technisch" VZGPZWS="224" VZGPZSS="224" VZAufnahmeWS="1" VZAPZWS="67" VZAufnahmeSS="" VZAPZSS="" VZNPZWS="224" VZNPZSS="224" VZRegelstudiendauer="6" BBGPZWS="" BBGPZSS="" BBAufnahmeWS="" BBAPZWS="" BBAufnahmeSS="" BBAPZSS="" BBNPZWS="" BBNPZSS="" BBRegelstudiendauer="" VBBGPZWS="" VBBGPZSS="" VBBAufnahmeWS="" VBBAPZWS="" VBBAufnahmeSS="" VBBAPZSS="" VBBNPZWS="" VBBNPZSS="" VBBRegelstudiendauer="" Umschichtbar="1" />
-			<Studienjahr Studienjahr="2021/22" Standort="Wien" Foerdergruppe="technisch" VZGPZWS="224" VZGPZSS="224" VZAufnahmeWS="1" VZAPZWS="67" VZAufnahmeSS="" VZAPZSS="" VZNPZWS="224" VZNPZSS="224" VZRegelstudiendauer="6" BBGPZWS="" BBGPZSS="" BBAufnahmeWS="" BBAPZWS="" BBAufnahmeSS="" BBAPZSS="" BBNPZWS="" BBNPZSS="" BBRegelstudiendauer="" VBBGPZWS="" VBBGPZSS="" VBBAufnahmeWS="" VBBAPZWS="" VBBAufnahmeSS="" VBBAPZSS="" VBBNPZWS="" VBBNPZSS="" VBBRegelstudiendauer="" Umschichtbar="1" />
-		</Studiengang>
- *   usw.
- * </code>
  *  
  */
 class BasisdatenReader 
@@ -219,7 +202,6 @@ class BasisdatenReader
 	private function copyData($orgformPrefix, $semesterPostfix, $rowData, $studienplatz) {
 		$studienplatz->gpz = (string)$rowData[$orgformPrefix.'GPZ'.$semesterPostfix];
 		$studienplatz->npz = (string)$rowData[$orgformPrefix.'NPZ'.$semesterPostfix];
-		$studienplatz->apz = (string)$rowData[$orgformPrefix.'APZ'.$semesterPostfix];
 	}
 }
 
